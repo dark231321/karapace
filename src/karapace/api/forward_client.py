@@ -47,7 +47,6 @@ class ForwardClient:
             elif config.server_tls_cafile and os.path.exists(config.server_tls_cafile):
                 self._ssl_context = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_CLIENT)
                 self._ssl_context.load_verify_locations(cafile=config.server_tls_cafile)
-                self._ssl_context.verify_mode = ssl.CERT_REQUIRED
 
     async def close(self) -> None:
         await self._forward_client.close()
